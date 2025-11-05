@@ -8,16 +8,6 @@ GIT
       zeitwerk
 
 GIT
-  remote: https://github.com/basecamp/queenbee-plugin
-  revision: eb01c697de1ad028afc65cc7d9b5345a7a8e849f
-  ref: eb01c697de1ad028afc65cc7d9b5345a7a8e849f
-  specs:
-    queenbee (3.2.0)
-      activeresource
-      builder
-      rexml
-
-GIT
   remote: https://github.com/basecamp/rails-structured-logging
   revision: 76960cb5c15fc2b6b5f7542e05d7dcc031cef9e6
   specs:
@@ -135,14 +125,6 @@ GIT
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
 
-PATH
-  remote: gems/fizzy-saas
-  specs:
-    fizzy-saas (0.1.0)
-      queenbee
-      rails (>= 8.1.0.beta1)
-      rails_structured_logging
-
 GEM
   remote: https://gems.stanko.io/private/
   specs:
@@ -162,14 +144,6 @@ GEM
   specs:
     action_text-trix (2.1.15)
       railties
-    activemodel-serializers-xml (1.0.3)
-      activemodel (>= 5.0.0.a)
-      activesupport (>= 5.0.0.a)
-      builder (~> 3.1)
-    activeresource (6.2.0)
-      activemodel (>= 7.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (>= 7.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     anyway_config (2.7.2)
@@ -600,7 +574,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-tenanted!
-  activeresource
   autotuner
   aws-sdk-s3
   bcrypt (~> 3.1.7)
@@ -612,7 +585,6 @@ DEPENDENCIES
   capybara
   debug
   faker
-  fizzy-saas!
   geared_pagination (~> 1.2)
   image_processing (~> 1.14)
   importmap-rails
@@ -627,7 +599,6 @@ DEPENDENCIES
   prometheus-client-mmap (~> 1.1)
   propshaft
   puma (>= 5.0)
-  queenbee!
   rails!
   rails_structured_logging!
   redcarpet
