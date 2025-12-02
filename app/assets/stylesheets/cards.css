@@ -143,7 +143,6 @@
   }
 
   .card__title {
-    --autosize-block-padding: 0 0.5ch;
     --input-border-radius: 0;
     --input-color: var(--card-content-color);
     --lines: 3;
@@ -156,7 +155,7 @@
 
     .card-field__title {
       overflow: hidden; /* prevent scrolling on windows */
-      padding-block: var(--autosize-block-padding);
+      padding-block-end: 0.5ch;
 
       &:is(textarea)::placeholder {
         color: inherit;
