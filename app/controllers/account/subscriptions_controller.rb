@@ -10,7 +10,7 @@ class Account::SubscriptionsController < ApplicationController
     plan = Plan.find(params[:plan])
 
     session = Stripe::Checkout::Session.create \
-      customer: find_or_create_stripe_customer.id,
+      customer: find_or_create_stripe_customer,
       mode: "subscription",
       line_items: [{ price: plan.stripe_price_id, quantity: 1 }],
       success_url: account_subscription_url + "?session_id={CHECKOUT_SESSION_ID}",
@@ -42,7 +42,7 @@ class Account::SubscriptionsController < ApplicationController
     end
 
     def find_stripe_customer
-      @account.subscription&.stripe_customer_id if @account.subscription&.stripe_customer_id
+      Stripe::Customer.retrieve(@account.subscription.stripe_customer_id) if @account.subscription&.stripe_customer_id
     end
 
     def create_stripe_customer
