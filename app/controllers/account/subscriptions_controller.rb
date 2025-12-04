@@ -47,7 +47,7 @@ class Account::SubscriptionsController < ApplicationController
 
     def create_stripe_customer
       Stripe::Customer.create(email: Current.user.identity.email_address, name: @account.name, metadata: { account_id: @account.id }).tap do |customer|
-        @account.create_subscription!(stripe_customer_id: customer.id, plan_key: Plan.default.key, status: "incomplete")
+        @account.create_subscription!(stripe_customer_id: customer.id, plan_key: params[:plan], status: "incomplete")
       end
     end
 end
