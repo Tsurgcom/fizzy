@@ -17,6 +17,15 @@ Rails.application.configure do
   #   authentication:       :plain,
   #   enable_starttls_auto: true
   # }
+  config.action_mailer.smtp_settings = {
+    address:              ENV["SMTP_ADDRESS"], # The address of your email provider's SMTP server
+    port:                 ENV["SMTP_PORT"],
+    domain:               ENV["SMTP_DOMAIN"],      # Your domain, which Fizzy will send email from
+    user_name:            ENV["SMTP_USERNAME"],
+    password:             ENV["SMTP_PASSWORD"],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
@@ -25,7 +34,7 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
